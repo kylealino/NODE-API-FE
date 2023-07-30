@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import Swal from "sweetalert2";
 
-const TableProduct = ({ products }) => {
+const TableProduct = ({ products, getProducts }) => {
   const deleteProduct = async (id) => {
     const result = await Swal.fire({
       title: "Do you want to delete the product?",
