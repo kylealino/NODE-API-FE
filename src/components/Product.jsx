@@ -28,7 +28,6 @@ const Product = ({ product, getProducts }) => {
       <img src={product.image} className="w-full h-28 object-cover" />
       <div className="px-4 pt-2 pb-4">
         <h2 className="text font-semibold">{product.name}</h2>
-        <div className="text-sm">Quantiy: {product.quantity}</div>
         <div className="text-sm">Price: ${product.price}</div>
 
         <div className="mt-2 flex gap-4">

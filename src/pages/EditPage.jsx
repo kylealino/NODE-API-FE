@@ -10,7 +10,6 @@ const EditPage = () => {
 
   const [product, setProduct] = useState({
     name: "",
-    quantity: "",
     price: "",
     image: "",
   });
@@ -21,7 +20,6 @@ const EditPage = () => {
       const response = await axios.get(`https://node-backend-pnmi.onrender.com/api/product/${id}`);
       setProduct({
         name: response.data.name,
-        quantity: response.data.quantity,
         price: response.data.price,
         image: response.data.image,
       });
@@ -70,20 +68,6 @@ const EditPage = () => {
                   }
                   className="w-full block border p-3 text-gray-600  rounded focus:outline-none focus:shadow-outline focus:border-blue-200 placeholder-gray-400"
                   placeholder="Name"
-                />
-              </div>
-              <div>
-                <label className="text-gray-600 mb-2 block font-semibold">
-                  Quantity
-                </label>
-                <input
-                  type="text"
-                  value={product.quantity}
-                  onChange={(e) =>
-                    setProduct({ ...product, quantity: e.target.value })
-                  }
-                  className="w-full block border p-3 text-gray-600  rounded focus:outline-none focus:shadow-outline focus:border-blue-200 placeholder-gray-400"
-                  placeholder="Quantity"
                 />
               </div>
               <div>

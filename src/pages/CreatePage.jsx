@@ -7,7 +7,6 @@ import { toast } from "react-toastify";
 const CreatePage = () => {
 
     const [name, setName] = useState("");
-    const [quantity, setQuantity] = useState("");
     const [price, setPrice] = useState("");
     const [image, setImage] = useState("");
     const [isLoading, setIsLoading] = useState(false);
@@ -15,13 +14,13 @@ const CreatePage = () => {
 
     const saveProduct = async(e) => {
         e.preventDefault();
-        if(name === "" || quantity === "" || price === "" || image == ""){
+        if(name === "" || price === "" || image == ""){
             toast.error('Please fill out all input completely');
             return;
         }
         try {
             setIsLoading(true);
-            const response = await axios.post("https://node-backend-pnmi.onrender.com/api/product", {name: name, quantiy: quantity, price: price, image: image});
+            const response = await axios.post("https://node-backend-pnmi.onrender.com/api/product", {name: name, price: price, image: image});
             toast.success(`Save ${response.data.name} Successfully`);
             setIsLoading(false);
             navigate("/");
@@ -42,10 +41,6 @@ const CreatePage = () => {
                     <div>
                         <label className="text-gray-600 mb-2 block font-semibold">Name</label>
                         <input type="text" value={name} onChange={(e) => setName(e.target.value)} className="w-full block border p-3 text-gray-600  rounded focus:outline-none focus:shadow-outline focus:border-blue-200 placeholder-gray-400" placeholder="Name" />
-                    </div>
-                    <div>
-                        <label className="text-gray-600 mb-2 block font-semibold">Quantity</label>
-                        <input type="number" value={quantity} onChange={(e) => setQuantity(e.target.value)} className="w-full block border p-3 text-gray-600  rounded focus:outline-none focus:shadow-outline focus:border-blue-200 placeholder-gray-400" placeholder="Quantity" />
                     </div>
                     <div>
                         <label className="text-gray-600 mb-2 block font-semibold">Price</label>

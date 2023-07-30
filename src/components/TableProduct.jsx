@@ -10,7 +10,6 @@ const TableProduct = ({ products }) => {
           <tr>
             <th className="text-left px-4 py-2">Name</th>
             <th className="text-left px-4 py-2">Price</th>
-            <th className="text-left px-4 py-2">Quantity</th>
             <th className="w-20 px-4 py-2">Image</th>
             <th className="text-left px-4 py-2">Action</th>
           </tr>
@@ -20,7 +19,6 @@ const TableProduct = ({ products }) => {
             return (
               <tr key={index}>
                 <td className="p-4 border-b ">{product.name}</td>
-                <td className="p-4 border-b ">{product.quantity}</td>
                 <td className="p-4 border-b ">${product.price}</td>
                 <td className="p-4 border-b ">
                     <img src={product.image} className="w-full"/>
